@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <a href="{% url 'logout' %}">Sair</a>
+
+    <p>Ola {{user.username}}</p>
+
+    <ul>
+        {% for p in persons %}
+            <li>
+                <a href="{% url 'person_update' p.id %}">{{ p }}</a>
+                <a href="{% url 'person_delete' p.id %}">Deletar</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'person_new' %}">Cadastre-se!</a>
+</body>
+</html>
